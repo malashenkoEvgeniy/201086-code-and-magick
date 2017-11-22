@@ -24,10 +24,10 @@ window.renderStatistics = function (ctx, names, times) {
   var indent = 50;
   var initialX = 150;
   for (var i = 0; i < times.length; i++) {
-    if (names[i] = 'Вы') {
+    if (names[i] === 'Вы') {
       ctx.fillStyle = 'rgba(255, 0, 0, 1)';
     } else {
-      ctx.fillStyle = 'rgba(0, 0, 0, Math.floor(Math.random()*10))';
+      ctx.fillStyle = 'rgba(0, 0, 255,' + Math.random() + ')';
     }
     ctx.fillRect(initialX, 240, 40, times[i] * step);
     ctx.fillStyle = '#000';
