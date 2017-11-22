@@ -23,16 +23,17 @@ window.renderStatistics = function (ctx, names, times) {
   var step = -histogramHeight / getMaxElement(times);
   var indent = 50;
   var initialX = 150;
+  var columnWidth = 40;
   for (var i = 0; i < times.length; i++) {
     if (names[i] === 'Вы') {
       ctx.fillStyle = 'rgba(255, 0, 0, 1)';
     } else {
       ctx.fillStyle = 'rgba(0, 0, 255,' + Math.random() + ')';
     }
-    ctx.fillRect(initialX, 240, 40, times[i] * step);
+    ctx.fillRect(initialX, 240, columnWidth, times[i] * step);
     ctx.fillStyle = '#000';
     ctx.font = '16px Mono';
     ctx.fillText(names[i], initialX, 260);
-    initialX += indent;
+    initialX = initialX + indent + columnWidth;
   }
 };
