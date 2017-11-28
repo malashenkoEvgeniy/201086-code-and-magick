@@ -44,7 +44,10 @@ var similarListElement = document.querySelector('.setup-similar-list');
 var similarWizardTemplate = document.querySelector('#similar-wizard-template').content;
 for (var j = 0; j < wizards.length; j++) {
   var wizardElement = similarWizardTemplate.cloneNode(true);
-  wizardElement.querySelector('.setup-similar-label').textContent = wizards.name;//????????
+  wizardElement.querySelector('.setup-similar-label').textContent = wizards[j].name;
+  wizardElement.querySelector('.wizard-coat').style.fill = wizards[j].coatColor;
+  wizardElement.querySelector('.wizard-eyes').style.fill = wizards[j].eyesColor;
   similarListElement.appendChild(wizardElement);
 }
 document.querySelector('.setup-similar').classList.remove('hidden');
+
