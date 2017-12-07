@@ -108,3 +108,8 @@ var wizardFireball = document.querySelector('.setup-fireball-wrap');
 wizardFireball.addEventListener('click', function () {
   wizardFireball.style.background = getWizardFireball();
 });
+userNameInput.addEventListener('keydown', function (evt) {
+  if (evt.keyCode === ESC_KEYCODE) {
+    evt.stopPropagation();
+  }
+});
