@@ -65,8 +65,8 @@
     wizardFireball.style.background = getWizardFireball();
   });
   userNameInput.addEventListener('keydown', function (evt) {
-    if (evt.keyCode === window.util.ESC_KEYCODE) {
+    window.util.isEscEvent(evt, function () {
       evt.stopPropagation();
-    }
+    });
   });
 })();
