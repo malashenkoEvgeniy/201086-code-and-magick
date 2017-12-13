@@ -70,7 +70,7 @@
     });
   });
 
-  var dialogHandle = setup.querySelector('.setup-user-pic');
+  var dialogHandle = setup.querySelector('.upload');
 
   dialogHandle.addEventListener('mousedown', function (evt) {
     evt.preventDefault();
@@ -115,7 +115,11 @@
     if (evt.target.tagName.toLowerCase() === 'img') {
       draggedItem = evt.target;
       evt.dataTransfer.setData('text/plain', evt.target.alt);
+      artifactsElement.style.outline = '2px dashed red';
     }
+  });
+  shopElement.addEventListener('dragend', function () {
+    artifactsElement.style.outline = '';
   });
 
   var artifactsElement = document.querySelector('.setup-artifacts');
@@ -127,7 +131,7 @@
 
   artifactsElement.addEventListener('drop', function (evt) {
     evt.target.style.backgroundColor = '';
-    evt.target.appendChild(draggedItem);
+    evt.target.appendChild(draggedItem.cloneNode(true));
     evt.preventDefault();
   });
 
@@ -141,5 +145,6 @@
     evt.target.style.backgroundColor = '';
     evt.preventDefault();
   });
+
 
 })();
