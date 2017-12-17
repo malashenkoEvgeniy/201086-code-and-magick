@@ -3,18 +3,6 @@
   var setupOpen = document.querySelector('.setup-open');
   var setup = document.querySelector('.setup');
   var setupClose = setup.querySelector('.setup-close');
-  var getCoatColor = function () {
-    var wizardCoatColor = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
-    return wizardCoatColor[Math.floor(Math.random() * wizardCoatColor.length)];
-  };
-  var getWizardEyes = function () {
-    var wizardEyesColor = ['black', 'red', 'blue', 'yellow', 'green'];
-    return wizardEyesColor[Math.floor(Math.random() * wizardEyesColor.length)];
-  };
-  var getWizardFireball = function () {
-    var wizardFireballColor = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
-    return wizardFireballColor[Math.floor(Math.random() * wizardFireballColor.length)];
-  };
   document.querySelector('.setup-similar').classList.remove('hidden');
   var onPopupEscPress = function (evt) {
     window.util.isEscEvent(evt, closePopup);
@@ -54,24 +42,6 @@
       userNameInput.setCustomValidity('');
     }
   });
-  var wizardCoat = document.querySelector('.wizard-coat');
-  wizardCoat.addEventListener('click', function () {
-    wizardCoat.style.fill = getCoatColor();
-  });
-  var wizardEyes = document.querySelector('.wizard-eyes');
-  wizardEyes.addEventListener('click', function () {
-    wizardEyes.style.fill = getWizardEyes();
-  });
-  var wizardFireball = document.querySelector('.setup-fireball-wrap');
-  wizardFireball.addEventListener('click', function () {
-    wizardFireball.style.background = getWizardFireball();
-  });
-  userNameInput.addEventListener('keydown', function (evt) {
-    window.util.isEscEvent(evt, function () {
-      evt.stopPropagation();
-    });
-  });
-
   var dialogHandle = setup.querySelector('.upload');
 
   dialogHandle.addEventListener('mousedown', function (evt) {
@@ -109,5 +79,9 @@
     document.addEventListener('mousemove', onMouseMove);
     document.addEventListener('mouseup', onMouseUp);
   });
-
+  userNameInput.addEventListener('keydown', function (evt) {
+    window.util.isEscEvent(evt, function () {
+      evt.stopPropagation();
+    });
+  });
 })();
