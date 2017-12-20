@@ -3,6 +3,7 @@
   var setupOpen = document.querySelector('.setup-open');
   var setup = document.querySelector('.setup');
   var setupClose = setup.querySelector('.setup-close');
+  var setupWizardForm = setup.querySelector('.setup-wizard-form');
   document.querySelector('.setup-similar').classList.remove('hidden');
   var onPopupEscPress = function (evt) {
     window.util.isEscEvent(evt, closePopup);
@@ -81,6 +82,15 @@
   userNameInput.addEventListener('keydown', function (evt) {
     window.util.isEscEvent(evt, function () {
       evt.stopPropagation();
+    });
+  });
+  setupWizardForm.addEventListener('submit', function (evt) {
+    evt.preventDefault();
+    var formData = new FormData(setupWizardForm);
+    window.backend.save(formData, function (data) {
+      console.log(data);
+    }, function (data) {
+      console.log(data);
     });
   });
 })();
