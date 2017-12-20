@@ -86,11 +86,5 @@
   });
   setupWizardForm.addEventListener('submit', function (evt) {
     evt.preventDefault();
-    var formData = new FormData(setupWizardForm);
-    window.backend.save(formData, function (data) {
-      console.log(data);
-    }, function (data) {
-      console.log(data);
-    });
   });
 })();
